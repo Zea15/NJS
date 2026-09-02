@@ -19,6 +19,11 @@ export default function Navbar() {
             เกี่ยวกับ 
           </Link> 
         </li> 
+        <li> 
+          <Link className="navLink" href="/3FavBands"> 
+            วงดนตรีที่ชอบ
+          </Link> 
+        </li> 
       </ul> 
     </nav> 
   ); 

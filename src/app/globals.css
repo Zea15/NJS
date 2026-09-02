@@ -19,63 +19,218 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+* {
+  box-sizing: border-box;
 }
-* { 
-  box-sizing: border-box; 
-} 
- 
-body { 
-  margin: 0; 
-  color: #1f2937; 
-  background: #f8fafc; 
-  font-family: Arial, sans-serif; 
-} 
- 
-.siteHeader { 
-  background: #14532d; 
-} 
- 
-.navbar, 
-.page { 
-  width: min(100% - 2rem, 70rem); 
-  margin-inline: auto; 
-} 
- 
-.navList { 
-  display: flex; 
-  gap: 1rem; 
-  margin: 0; 
-  padding: 1rem 0; 
-  list-style: none; 
-} 
- 
-.navLink { 
-  color: white; 
-  text-decoration: none; 
-} 
- 
-.navLink:hover, 
-.navLink:focus-visible { 
-  text-decoration: underline; 
-} 
- 
-.page { 
-  padding-block: 2rem; 
-} 
- 
-.courseGrid { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); 
-  gap: 1rem; 
-} 
- 
-.courseCard { 
-  padding: 1rem; 
-  border: 1px solid #d1d5db; 
-  border-radius: 0.75rem; 
-  background: white; 
-} 
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #1f2937;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  font-family: Arial, sans-serif;
+}
+
+.siteHeader {
+  background: #14532d;
+}
+
+.navbar,
+.page {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+}
+
+.navList {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 1rem 0;
+  list-style: none;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  text-decoration: underline;
+}
+
+.page {
+  padding-block: 2.5rem;
+}
+
+.bandsPage {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bandsHeader {
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #4f46e5;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.bandsHeader h1 {
+  margin: 0.5rem 0 0;
+  font-size: clamp(2rem, 3vw, 3rem);
+  color: #111827;
+}
+
+.courseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1.25rem;
+}
+
+.bandCard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bandCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 30px rgba(15, 23, 42, 0.12);
+}
+
+.bandCoverWrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+
+.bandCover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bandContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 1rem 1.25rem;
+}
+
+.bandHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.bandBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: #e0e7ff;
+  color: #3730a3;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.bandHeader h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #111827;
+}
+
+.memberSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.sectionLabel {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #6b7280;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.memberList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.memberItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.6rem 0.4rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.9rem;
+  background: #f8fafc;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #374151;
+}
+
+.memberAvatarWrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 2px solid #c7d2fe;
+  background: #ffffff;
+}
+
+.memberAvatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.memberText,
+.songsText,
+.descriptionText {
+  margin: 0;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.songsText strong {
+  color: #111827;
+}
+
+.courseCard {
+  padding: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  background: white;
+}
