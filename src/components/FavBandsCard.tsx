@@ -4,9 +4,20 @@ import { Bands } from "@/types/bands";
 type BandsCardProps = {
   band: Bands;
   description?: string;
+  isSubscribed: boolean; 
+  onToggleSubscribe: (id: number) => void; 
+  likeCount: number;
+  onLike: (id: number) => void;
 };
 
-export default function BandsCard({ band, description }: BandsCardProps) {
+export default function BandsCard({
+  band,
+  description,
+  isSubscribed,
+  onToggleSubscribe,
+  likeCount,
+  onLike,
+}: BandsCardProps) {
   const members = band.members ?? [];
 
   return (
@@ -57,6 +68,24 @@ export default function BandsCard({ band, description }: BandsCardProps) {
         </p>
 
         {description && <p className="descriptionText">{description}</p>}
+        <div className="bandActions">
+          <button
+            type="button"
+            className="likeButton"
+            onClick={() => onLike(band.id)}
+          >
+            Like ({likeCount})
+          </button>
+          <button
+            type="button"
+            className="subscribeButton"
+            aria-pressed={isSubscribed}
+            onClick={() => onToggleSubscribe(band.id)}
+          >
+            {isSubscribed ? "ติดตามอยู่" : "ติดตาม"}
+          </button>
+        </div>
+
       </div>
     </article>
   );

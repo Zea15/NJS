@@ -1,6 +1,9 @@
 import BandCard from "@/components/FavBandsCard";
 import { bands } from "@/data/FavBandsdata";
 
+import type { Metadata } from "next";
+import BandCardExplorer from "@/components/FavBandExplorer";
+
 export default function FavBandsPage() {
   return (
     <main className="page bandsPage">
@@ -10,9 +13,9 @@ export default function FavBandsPage() {
       </header>
 
       <div className="courseGrid">
-        {bands.map((band) => (
-          <BandCard key={band.id} band={band} />
-        ))}
+       <BandCardExplorer  bands={bands} /> 
+        
+    
       </div>
     </main>
   );

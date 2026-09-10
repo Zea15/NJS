@@ -30,8 +30,10 @@ html {
 body {
   margin: 0;
   color: #1f2937;
-  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
-  font-family: Arial, sans-serif;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(251, 191, 36, 0.2), transparent 22rem),
+    linear-gradient(135deg, #fffaf0 0%, #f8fafc 48%, #e7f5f1 100%);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
 }
 
 .siteHeader {
@@ -69,12 +71,13 @@ body {
 .bandsPage {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
+  min-height: calc(100vh - 4rem);
 }
 
 .bandsHeader {
   text-align: center;
-  padding: 1rem 0 0.5rem;
+  padding: 2rem 0 0;
 }
 
 .eyebrow {
@@ -88,14 +91,81 @@ body {
 
 .bandsHeader h1 {
   margin: 0.5rem 0 0;
-  font-size: clamp(2rem, 3vw, 3rem);
-  color: #111827;
+  color: #172a3a;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  letter-spacing: -0.04em;
 }
 
-.courseGrid {
+.bandExplorer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bandSearchBar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(23, 42, 58, 0.12);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 1rem 2rem rgba(23, 42, 58, 0.06);
+  backdrop-filter: blur(0.75rem);
+}
+
+.searchKicker {
+  margin: 0 0 0.2rem;
+  color: #d97706;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.bandSearchBar h2 {
+  margin: 0;
+  color: #172a3a;
+  font-size: 1.25rem;
+}
+
+.subscribeSummary {
+  margin: 0.35rem 0 0;
+  color: #0f766e;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.bandSearchBar input {
+  width: min(100%, 22rem);
+  padding: 0.85rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.35rem;
+  background: #ffffff;
+  color: #172a3a;
+  font: inherit;
+  outline: none;
+}
+
+.bandSearchBar input:focus {
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.16);
+}
+
+.bandResults {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   gap: 1.25rem;
+}
+
+.emptyBands {
+  margin: 0;
+  padding: 2rem;
+  border: 1px dashed #94a3b8;
+  border-radius: 0.5rem;
+  color: #475569;
+  text-align: center;
 }
 
 .bandCard {
@@ -103,7 +173,7 @@ body {
   flex-direction: column;
   overflow: hidden;
   border: 1px solid #e5e7eb;
-  border-radius: 1.25rem;
+  border-radius: 0.5rem;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 12px 25px rgba(15, 23, 42, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -117,12 +187,13 @@ body {
 .bandCoverWrap {
   position: relative;
   width: 100%;
-  height: 220px;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #e2e8f0;
 }
 
 .bandCover {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -160,6 +231,55 @@ body {
   margin: 0;
   font-size: 1.6rem;
   color: #111827;
+}
+
+.bandActions {
+  display: flex;
+  gap: 0.65rem;
+  margin-top: auto;
+}
+
+.bandActions button {
+  flex: 1;
+  margin-top: auto;
+  padding: 0.75rem 1rem;
+  border: 1px solid #0f766e;
+  border-radius: 0.35rem;
+  background: #0f766e;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.bandActions button:hover {
+  background: #115e59;
+  transform: translateY(-1px);
+}
+
+.bandActions .likeButton {
+  border-color: #f59e0b;
+  background: #fffbeb;
+  color: #b45309;
+}
+
+.bandActions .likeButton:hover,
+.bandActions .likeButton[aria-pressed="true"] {
+  background: #f59e0b;
+  color: #ffffff;
+}
+
+.bandActions .subscribeButton[aria-pressed="true"] {
+  border-color: #d97706;
+  background: #fff7ed;
+  color: #b45309;
+}
+
+.bandContent > button[aria-pressed="true"] {
+  border-color: #d97706;
+  background: #fff7ed;
+  color: #b45309;
 }
 
 .memberSection {
@@ -233,4 +353,19 @@ body {
   border: 1px solid #d1d5db;
   border-radius: 0.75rem;
   background: white;
+}
+
+@media (max-width: 640px) {
+  .bandSearchBar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .bandSearchBar input {
+    width: 100%;
+  }
+
+  .bandActions {
+    flex-direction: column;
+  }
 }
