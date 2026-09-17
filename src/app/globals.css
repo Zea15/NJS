@@ -31,8 +31,8 @@ body {
   margin: 0;
   color: #1f2937;
   background:
-    radial-gradient(circle at 8% 8%, rgba(251, 191, 36, 0.2), transparent 22rem),
-    linear-gradient(135deg, #fffaf0 0%, #f8fafc 48%, #e7f5f1 100%);
+    radial-gradient(circle at 100% 0%, rgba(219, 234, 254, 0.45), transparent 24rem),
+    #f8fafc;
   font-family: var(--font-geist-sans), Arial, sans-serif;
 }
 
@@ -368,4 +368,68 @@ body {
   .bandActions {
     flex-direction: column;
   }
+}
+
+/* Game library */
+.gamePage {
+  max-width: 78rem;
+  min-height: calc(100vh - 4rem);
+}
+
+.gamePageHeader { max-width: 44rem; margin-bottom: 1.5rem; }
+.gameEyebrow, .gameSectionKicker {
+  margin: 0 0 0.5rem;
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+.gamePageHeader h1, .gameDetailPage h1 { margin: 0; color: #172a3a; font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -0.04em; line-height: 1.05; }
+.gamePageHeader > p:last-child { max-width: 34rem; margin: 0.75rem 0 0; color: #64748b; font-size: 0.95rem; line-height: 1.6; }
+.gameExplorer { display: grid; gap: 1.1rem; }
+.gameSearchBar, .gameForm {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0.5rem 1.25rem rgba(23, 42, 58, 0.05);
+}
+.gameSearchBar { display: flex; align-items: end; justify-content: space-between; gap: 1.25rem; padding: 1rem 1.25rem; }
+.gameSearchBar h2, .gameForm h2 { margin: 0; color: #172a3a; font-size: 1.15rem; }
+.gameSearchBar p:last-child { margin: 0.3rem 0 0; color: #64748b; }
+.gameSearchBar input { width: min(100%, 21rem); padding: 0.75rem 0.9rem; border: 1px solid #cbd5e1; border-radius: 0.55rem; background: #fff; color: #172a3a; font: inherit; outline: none; }
+.gameSearchBar input:focus, .gameForm input:focus, .gameForm select:focus { border-color: #f59e0b; box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.18); }
+.gameGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14.5rem, 1fr)); gap: 0.8rem; }
+.gameCard { display: flex; min-height: 12.5rem; flex-direction: column; gap: 0.75rem; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #ffffff; box-shadow: 0 0.5rem 1.25rem rgba(23, 42, 58, 0.05); transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+.gameCard:hover { transform: translateY(-3px); border-color: #cbd5e1; box-shadow: 0 0.75rem 1.5rem rgba(23, 42, 58, 0.09); }
+.gameCardTopline, .gameCardActions { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+.gamePlatform { padding: 0.3rem 0.65rem; border: 1px solid #dbeafe; border-radius: 999px; background: #eff6ff; color: #1d4ed8; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.gameId { color: #94a3b8; font-family: monospace; font-size: 0.8rem; }
+.gameCard h2 { margin: 0; min-height: 3.25rem; color: #172a3a; font-size: 1.12rem; line-height: 1.3; }
+.gameCard h2 a { color: inherit; text-decoration: none; }
+.gameCard h2 a:hover { color: #b45309; }
+.gameCardMeta { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin-top: auto; }
+.gameCardMeta p, .gameDetailGrid p { display: grid; gap: 0.2rem; margin: 0; color: #172a3a; font-weight: 700; }
+.gameCardMeta span, .gameDetailGrid span { color: #64748b; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.gameStatus { color: #b45309; }
+.gameCardActions button, .gameFormActions button { padding: 0.55rem 0.8rem; border: 1px solid #cbd5e1; border-radius: 0.45rem; background: #f8fafc; color: #334155; cursor: pointer; font: inherit; font-size: 0.85rem; font-weight: 800; transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease; }
+.gameCardActions button:hover, .gameFormActions button:hover { transform: translateY(-1px); border-color: #f59e0b; background: #fffbeb; }
+.gameDeleteButton { border-color: #fecaca !important; background: #fff1f2 !important; color: #be123c !important; }
+.gameEmptyState { padding: 2rem; border: 1px dashed #94a3b8; border-radius: 0.75rem; color: #64748b; text-align: center; }
+.gameForm { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem 1rem; padding: 1.25rem; }
+.gameFormHeader { grid-column: 1 / -1; margin-bottom: 0.35rem; }
+.gameFormHeader p:last-child { margin: 0.35rem 0 0; color: #64748b; font-size: 0.85rem; line-height: 1.5; }
+.gameField { display: grid; gap: 0.35rem; }
+.gameForm label { color: #334155; font-size: 0.82rem; font-weight: 800; }
+.gameForm input, .gameForm select { width: 100%; padding: 0.75rem 0.8rem; border: 1px solid #cbd5e1; border-radius: 0.45rem; background: #fff; color: #172a3a; font: inherit; outline: none; }
+.gameFieldError { margin: 0; color: #be123c; font-size: 0.75rem; }
+.gameFormActions { display: flex; grid-column: 1 / -1; gap: 0.7rem; margin-top: 0.35rem; }
+.gameFormActions button[type="button"] { border-color: #cbd5e1; background: #f8fafc; color: #475569; }
+.gameDetailPage { max-width: 52rem; padding-top: 5rem; }
+.gameDetailPage h1 { max-width: 42rem; margin-bottom: 2rem; }
+.gameDetailGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding-top: 1.5rem; border-top: 1px solid #cbd5e1; }
+
+@media (max-width: 640px) {
+  .gameSearchBar { align-items: stretch; flex-direction: column; }
+  .gameSearchBar input { width: 100%; }
+  .gameForm, .gameDetailGrid { grid-template-columns: 1fr; }
 }
